@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markov Chain Conversation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        #main-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #content-wrapper {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .column {
+            width: 20%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .column img {
+            width: 100%;
+            max-width: 150px;
+        }
+
+        #conversation {
+            width: 60%;
+            padding: 10px;
+            text-align: left;
+            overflow-y: auto;
+            max-height: 600px;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+        }
+
+        .thought-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: Times New Roman, serif;
+        }
+
+        .reply-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+
+        .thought-card {
+            background-color: lightblue;
+            font-family: "Times New Roman", serif;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .reply-card {
+            background-color: lightcoral;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="header.png" alt="Header Image">
+    <h1>Markov Chain Conversation Generator</h1>
+</header>
+
+<div id="main-content">
+    <p>Welcome to the Markov Chain Conversation Generator. You can click "Thought" or "Reply" to generate text cards for an ongoing conversation. This is a space to explore random musings and responses, brought to you by Markov chains.</p>
+    <hr>
+    <div id="content-wrapper">
+        <div class="column">
+            <img src="thought.png" alt="Thought Image">
+            <button class="thought-button" onclick="generateThought()">Thought</button>
+        </div>
+        <div id="conversation"></div>
+        <div class="column">
+            <img src="reply.png" alt="Reply Image">
+            <button class="reply-button" onclick="generateReply()">Reply</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function generateThought() {
+        // Placeholder for Markov chain generation for "Thought"
+        const thought = "This is a randomly generated Thought sentence.";
+        appendCard(thought, 'thought-card');
+    }
+
+    function generateReply() {
+        // Placeholder for Markov chain generation for "Reply"
+        const reply = "This is a randomly generated Reply sentence.";
+        appendCard(reply, 'reply-card');
+    }
+
+    function appendCard(text, className) {
+        const conversationDiv = document.getElementById('conversation');
+        const card = document.createElement('div');
+        card.className = className;
+        card.textContent = text;
+        conversationDiv.insertBefore(card, conversationDiv.firstChild);
+    }
+</script>
+
+</body>
+</html>
