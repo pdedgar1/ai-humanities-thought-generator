@@ -7,24 +7,27 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f2e7;
+            color: #5a5a5a;
             margin: 0;
             padding: 0;
         }
 
         header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         header img {
             width: 100%;
             max-height: 200px;
             object-fit: cover;
+            border-radius: 12px;
         }
 
         #main-content {
-            text-align: center;
+            text-align: left;
             padding: 20px;
         }
 
@@ -43,6 +46,7 @@
         .column img {
             width: 100%;
             max-width: 150px;
+            border-radius: 12px;
         }
 
         #conversation {
@@ -51,44 +55,76 @@
             text-align: left;
             overflow-y: auto;
             max-height: 600px;
-            border-left: 1px solid #ccc;
-            border-right: 1px solid #ccc;
+            border-left: 1px solid #d3c8b5;
+            border-right: 1px solid #d3c8b5;
+            background-color: #fbf8ef;
         }
 
         .thought-button {
-            background-color: blue;
+            background-color: #6a88af;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
-            font-family: Times New Roman, serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 8px;
         }
 
         .reply-button {
-            background-color: red;
+            background-color: #c46767;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 8px;
         }
 
         .thought-card {
-            background-color: lightblue;
+            background-color: #e0e7f1;
             font-family: "Times New Roman", serif;
             padding: 10px;
             margin-bottom: 10px;
-            border-radius: 8px;
+            border-radius: 12px;
         }
 
         .reply-card {
-            background-color: lightcoral;
+            background-color: #f1d4d4;
             font-family: Arial, sans-serif;
             padding: 10px;
             margin-bottom: 10px;
-            border-radius: 8px;
+            border-radius: 12px;
+        }
+
+        footer {
+            background-color: #f7f2e7;
+            color: #5a5a5a;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #d3c8b5;
+        }
+
+        footer a {
+            color: #6a88af;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        #extra-content {
+            text-align: left;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fbf8ef;
+            border-top: 1px solid #d3c8b5;
+            border-bottom: 1px solid #d3c8b5;
         }
     </style>
 </head>
@@ -96,11 +132,15 @@
 
 <header>
     <img src="header.png" alt="Header Image">
-    <h1>Markov Chain Conversation Generator</h1>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Humanities & A.I. Markov Convo</h1>
+    <hr>
 </header>
 
 <div id="main-content">
-    <p>Welcome to the Markov Chain Conversation Generator. You can click "Thought" or "Reply" to generate text cards for an ongoing conversation. This is a space to explore random musings and responses, brought to you by Markov chains.</p>
+    <p>Welcome to the Humanities and AI Conversation Generator.</p>
+    <p>You can click "Thought" or "Reply" to generate text cards for an ongoing conversation.</p>
+    <p>The "Thought" version of P.D. is compiled from my one-to-all posts about the readings and exercises in my AI and the Humanities class. The source text is very often about ideas and my process notes from other projects.</p>
+    <p>The "Reply" version of P.D. is compiled from my one-to-one reply comments on my classmates' work, their projects, and some of the ideas they raised over the course of the semester. Their first names may appear in the text as a result!</p>
     <hr>
     <div id="content-wrapper">
         <div class="column">
@@ -115,27 +155,24 @@
     </div>
 </div>
 
-<script>
-    function generateThought() {
-        // Placeholder for Markov chain generation for "Thought"
-        const thought = "This is a randomly generated Thought sentence.";
-        appendCard(thought, 'thought-card');
-    }
 
-    function generateReply() {
-        // Placeholder for Markov chain generation for "Reply"
-        const reply = "This is a randomly generated Reply sentence.";
-        appendCard(reply, 'reply-card');
-    }
+<div id="extra-content">
+    <h2>Process note:</h2>
+    <p>The images on this site were generated with ChatGPT's Pixel Art+ integration.</p>
+    <p>The code that runs this website, both HTML and Markov.js, were produced with the help of ChatGPT 4o with Canvas. I prompted the structure of the website and linked in the images and text that feeds the two separate Markov chains that make up the two versions of myself, because they are two versions of me:</p>
+    <p>One reason why I frame these two versions of myself in conversation is because they wouldn't have actually ever spoken in class: "Thought" P.D. is speaking at large, to an audience of the professor and his peers, while the "Reply" P.D. is excitedly trying to make connections in a sort of "Group work" mentality. I think there are different affects in the work, as a result.</p>
+</div>
 
-    function appendCard(text, className) {
-        const conversationDiv = document.getElementById('conversation');
-        const card = document.createElement('div');
-        card.className = className;
-        card.textContent = text;
-        conversationDiv.insertBefore(card, conversationDiv.firstChild);
-    }
-</script>
 
+<footer>
+    <p>Thank you for visiting! Here are some helpful links:</p>
+    <a href="#">Home</a>
+    <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">External Link 1</a>
+    <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">External Link 1</a>
+    <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">External Link 1</a>
+    <a href="https://www.example.com" target="_blank" rel="noopener noreferrer">External Link 1</a>
+</footer>
+
+<script src="markov.js"></script>
 </body>
 </html>
